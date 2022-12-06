@@ -3,10 +3,8 @@ import Styles from './styles.module.scss'
 import {  useDispatch } from 'react-redux';
 import {MenuItem, TextField} from "@mui/material";
 import searchIcon from "../../../images/search.svg";
-// // import {transactionActions} from "../../../actions/getDataTransaction";
-// import axios from "axios";
-// import {setTransactionFullData} from "../../../redusers/dataTransactionsSlice";
 import {transactionActions} from "../../../actions/getDataTransaction";
+import CustomizedTables from "../Table";
 
 const currencies = [
     {
@@ -45,8 +43,9 @@ const handleClick = () => {
     dispatch(transactionActions.getTransactionData({params: {filters: search}}))
 }
     return (
-        <div className={Styles.wrapper}>
-            <div className={Styles.container}>
+        <>
+            <div className={Styles.wrapper}>
+                <div className={Styles.container}>
                     <TextField
                         className={Styles.field}
                         value={search}
@@ -66,11 +65,15 @@ const handleClick = () => {
                             </MenuItem>
                         ))}
                     </TextField>
+                </div>
+                <button className={Styles.submitBtn}  type="submit" onClick={handleClick}>
+                    <img src={searchIcon} alt={'search image'}/>
+                </button>
             </div>
-            <button className={Styles.submitBtn}  type="submit" onClick={handleClick}>
-                <img src={searchIcon} alt={'search image'}/>
-            </button>
-        </div>
+            <CustomizedTables/>
+        </>
+
+
 
     );
 }

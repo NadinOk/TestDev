@@ -8,7 +8,7 @@ const TableData = () => {
     return (
         <>
            <SelectLabels />
-            <CustomizedTables/>
+            {/*<CustomizedTables/>*/}
         </>
     );
 }

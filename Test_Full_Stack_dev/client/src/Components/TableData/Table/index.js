@@ -53,8 +53,7 @@ const rows = [
 
 export default function CustomizedTables(props) {
     const getData = useSelector((state) => state.dataTransactionSlice.transactions);
-    console.log('getData', getData)
-    console.log('props', props )
+
     return (
         <>
             <TableContainer component={Paper} className={Styles.container}>
